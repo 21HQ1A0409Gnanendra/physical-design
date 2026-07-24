@@ -1,0 +1,80 @@
+set extension 2.000
+
+foreach inst [get_db insts -if {.base_cell.name == "ht_slice*"}] {
+
+    set inst_llx [lindex [get_db $inst .bbox] 0 0]
+    set inst_lly [lindex [get_db $inst .bbox] 0 1]
+    set inst_urx [lindex [get_db $inst .bbox] 0 2]
+    set inst_ury [lindex [get_db $inst .bbox] 0 3]
+
+    foreach noc_pin [get_db $inst .pins] {
+
+        set pin_layer    [get_db $noc_pin .layer.name]
+        set pin_net      [get_db $noc_pin .net.name]
+        set pin_location [get_db $noc_pin .location]
+        set pin_box_dy   [get_db $noc_pin .base_pin.physical_pins.layer_shapes.shapes.rect.dy]
+
+        set pin_x [lindex $pin_location 0 0]
+        set pin_y [lindex $pin_location 0 1]
+
+        # Distance from pin to each side of the cell
+        set dist_left   [expr {$pin_x - $inst_llx}]
+        set dist_right  [expr {$inst_urx - $pin_x}]
+        set dist_bottom [expr {$pin_y - $inst_lly}]
+        set dist_top    [expr {$inst_ury - $pin_y}]
+
+        set min_dist [lindex [lsort -real [list \
+            $dist_left \
+            $dist_right \
+            $dist_bottom \
+            $dist_top]] 0]
+
+        #
+        # LEFT SIDE
+        #
+        if {$min_dist == $dist_left} {
+
+            set X0 [expr {$pin_x - $extension}]
+            set Y0 $pin_y
+            set X1 $pin_x
+            set Y1 $pin_y
+
+        #
+        # RIGHT SIDE
+        #
+        } elseif {$min_dist == $dist_right} {
+
+            set X0 $pin_x
+            set Y0 $pin_y
+            set X1 [expr {$pin_x + $extension}]
+            set Y1 $pin_y
+
+        #
+        # BOTTOM SIDE
+        #
+        } elseif {$min_dist == $dist_bottom} {
+
+            set X0 $pin_x
+            set Y0 [expr {$pin_y - $extension}]
+            set X1 $pin_x
+            set Y1 $pin_y
+
+        #
+        # TOP SIDE
+        #
+        } else {
+
+            set X0 $pin_x
+            set Y0 $pin_y
+            set X1 $pin_x
+            set Y1 [expr {$pin_y + $extension}]
+        }
+
+        create_shape \
+            -layer $pin_layer \
+            -net $pin_net \
+            -status routed \
+            -width $pin_box_dy \
+            -path_segment "$X0 $Y0 $X1 $Y1"
+    }
+}
