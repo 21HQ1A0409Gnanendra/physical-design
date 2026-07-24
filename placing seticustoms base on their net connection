@@ -1,0 +1,166 @@
+set cellNetPairs {
+{inst:ht_top_io/top/dram_common_0/tm/I3128 *dram_tsv_common_i[27]}
+{inst:ht_top_io/top/dram_common_0/tm/I3131 *dram_tsv_common_i[26]}
+{inst:ht_top_io/top/dram_common_0/tm/I3130 *dram_tsv_common_i[25]}
+{inst:ht_top_io/top/dram_common_0/tm/I3129 *dram_tsv_common_i[24]}
+{inst:ht_top_io/top/dram_common_0/tm/I3112 *dram_tsv_common_i[23]}
+{inst:ht_top_io/top/dram_common_0/tm/I3113 *dram_tsv_common_i[22]}
+{inst:ht_top_io/top/dram_common_0/tm/I3114 *dram_tsv_common_i[21]}
+{inst:ht_top_io/top/dram_common_0/tm/I3124 *dram_tsv_common_i[20]}
+{inst:ht_top_io/top/dram_common_0/tm/I3125 *dram_tsv_common_i[19]}
+{inst:ht_top_io/top/dram_common_0/tm/I3126 *dram_tsv_common_i[18]}
+{inst:ht_top_io/top/dram_common_0/tm/I3127 *dram_tsv_common_i[17]}
+{inst:ht_top_io/top/dram_common_0/tm/I3111 *dram_tsv_common_i[16]}
+{inst:ht_top_io/top/dram_common_0/tm/I3110 *dram_tsv_common_i[15]}
+{inst:ht_top_io/top/dram_common_0/tm/I3109 *dram_tsv_common_i[14]}
+{inst:ht_top_io/top/dram_common_0/tm/I3121 *dram_tsv_common_i[13]}
+{inst:ht_top_io/top/dram_common_0/tm/I3120 *dram_tsv_common_i[12]}
+{inst:ht_top_io/top/dram_common_0/tm/I3122 *dram_tsv_common_i[11]}
+{inst:ht_top_io/top/dram_common_0/tm/I3123 *dram_tsv_common_i[10]}
+{inst:ht_top_io/top/dram_common_0/tm/I3106 *dram_tsv_common_i[9]}
+{inst:ht_top_io/top/dram_common_0/tm/I3107 *dram_tsv_common_i[8]}
+{inst:ht_top_io/top/dram_common_0/tm/I3108 *dram_tsv_common_i[7]}
+{inst:ht_top_io/top/dram_common_0/tm/I3118 *dram_tsv_common_i[6]}
+{inst:ht_top_io/top/dram_common_0/tm/I3119 *dram_tsv_common_i[5]}
+{inst:ht_top_io/top/dram_common_0/tm/I3117 *dram_tsv_common_i[4]}
+{inst:ht_top_io/top/dram_common_0/tm/I3116 *dram_tsv_common_i[3]}
+{inst:ht_top_io/top/dram_common_0/tm/I3103 *dram_tsv_common_i[2]}
+{inst:ht_top_io/top/dram_common_0/tm/I3104 *dram_tsv_common_i[1]}
+{inst:ht_top_io/top/dram_common_0/tm/I3105 *dram_tsv_common_i[0]}
+{inst:ht_top_io/top/dram_common_0/tm/I3101 *dram_tsv_common_i[39]}
+{inst:ht_top_io/top/dram_common_0/tm/I3102 *dram_tsv_common_i[38]}
+{inst:ht_top_io/top/dram_common_0/tm/I3100 *dram_tsv_common_i[37]}
+{inst:ht_top_io/top/dram_common_0/tm/I3098 *dram_tsv_common_i[36]}
+{inst:ht_top_io/top/dram_common_0/tm/I3097 *dram_tsv_common_i[35]}
+{inst:ht_top_io/top/dram_common_0/tm/I3099 *dram_tsv_common_i[34]}
+{inst:ht_top_io/top/dram_common_0/tm/I3095 *dram_tsv_common_i[33]}
+{inst:ht_top_io/top/dram_common_0/tm/I3096 *dram_tsv_common_i[32]}
+{inst:ht_top_io/top/dram_common_0/tm/I3094 *dram_tsv_common_i[31]}
+{inst:ht_top_io/top/dram_common_0/tm/I3093 *dram_tsv_common_i[30]}
+{inst:ht_top_io/top/dram_common_0/tm/I3092 *dram_tsv_common_i[29]}
+{inst:ht_top_io/top/dram_common_0/tm/I3091 *dram_tsv_common_i[28]}
+{inst:ht_top_io/top/dram_common_0/tm/I3143 *dram_tsv_common_i[44]}
+{inst:ht_top_io/top/dram_common_0/tm/I3144 *dram_tsv_common_i[45]}
+{inst:ht_top_io/top/dram_common_0/tm/I3145 *dram_tsv_common_i[46]}
+{inst:ht_top_io/top/dram_common_0/tm/I3146 *dram_tsv_common_i[47]}
+{inst:ht_top_io/top/dram_common_0/tm/I2219 *dram_tsv_common_i[40]}
+{inst:ht_top_io/top/dram_common_0/tm/I2220 *dram_tsv_common_i[41]}
+{inst:ht_top_io/top/dram_common_0/tm/I2221 *dram_tsv_common_i[42]}
+{inst:ht_top_io/top/dram_common_0/tm/I2222 *dram_tsv_common_i[43]}
+{inst:ht_top_io/top/dram_common_0/tm/I3133 *dram_tsv_common_o[12]}
+{inst:ht_top_io/top/dram_common_0/tm/I3134 *dram_tsv_common_o[10]}
+{inst:ht_top_io/top/dram_common_0/tm/I3135 *dram_tsv_common_o[5]}
+{inst:ht_top_io/top/dram_common_0/tm/I3136 *dram_tsv_common_o[6]}
+{inst:ht_top_io/top/dram_common_0/tm/I3137 *dram_tsv_common_o[8]}
+{inst:ht_top_io/top/dram_common_0/tm/I3138 *dram_tsv_common_o[7]}
+{inst:ht_top_io/top/dram_common_0/tm/I3139 *dram_tsv_common_o[11]}
+{inst:ht_top_io/top/dram_common_0/tm/I3140 *dram_tsv_common_o[9]}
+{inst:ht_top_io/top/dram_common_0/tm/I3142 *dram_tsv_common_o[4]}
+}
+    #-----------------------------------------------------------
+# User Parameters
+#-----------------------------------------------------------
+#---------------------------------------------------
+# User Parameters
+#---------------------------------------------------
+set offsetX   30.0
+set colPitch  15.0
+set rowPitch  15.0
+ 
+#---------------------------------------------------
+# Fixed LLX locations from core edge
+#---------------------------------------------------
+#---------------------------------------------------
+# Fixed distance from CORE edge
+#---------------------------------------------------
+#set coreBBox [get_db current_design .core_bbox]
+#set coreLLX  [lindex $coreBBox 0]
+#
+## Required distances from core edge
+#set leftColX  [expr {$coreLLX + 80.94}]
+#set rightColX [expr {$coreLLX + 102.60}]
+ 
+ 
+set coreBBox [get_db current_design .core_bbox]
+ 
+puts "coreBBox = $coreBBox"
+ 
+set coreLLX [lindex [lindex $coreBBox 0] 0]
+ 
+puts "coreLLX = $coreLLX"
+ 
+set leftColX  [expr {double($coreLLX) + 80.94}]
+set rightColX [expr {double($coreLLX) + 102.60}]
+#---------------------------------------------------
+# Align to nearest EVEN CPP
+#---------------------------------------------------
+set cpp 0.057
+ 
+set cppIndex [expr {round($leftColX / $cpp)}]
+set cppIndex [expr {2 * round($cppIndex / 2.0)}]
+set leftColX [expr {$cppIndex * $cpp}]
+ 
+set cppIndex [expr {round($rightColX / $cpp)}]
+set cppIndex [expr {2 * round($cppIndex / 2.0)}]
+set rightColX [expr {$cppIndex * $cpp}]
+ 
+puts "Core LLX      = $coreLLX"
+puts "Left Column X = $leftColX"
+puts "Right Column X= $rightColX"
+ 
+ 
+#---------------------------------------------------
+# Placement
+#---------------------------------------------------
+set idx 0
+ 
+foreach pair $cellNetPairs {
+ 
+    set cellName [lindex $pair 0]
+    set netName  [lindex $pair 1]
+ 
+    if {[expr {$idx % 4}] == 0} {
+ 
+        set bbox [get_db \
+            [get_db nets .special_wires \
+            -if ".obj_type == special_wire && .net == $netName"] .rect]
+ 
+        set yMin [lindex [lindex $bbox 0] 1]
+        set yMax [lindex [lindex $bbox 0] 3]
+ 
+        set anchorY [expr {($yMin + $yMax)/2.0}]
+    }
+ 
+    set pos [expr {$idx % 4}]
+ 
+    switch $pos {
+        0 {
+            set placeX $leftColX
+            set placeY $anchorY
+        }
+        1 {
+            set placeX $rightColX
+            set placeY $anchorY
+        }
+        2 {
+            set placeX $leftColX
+            set placeY [expr {$anchorY - $rowPitch}]
+        }
+        3 {
+            set placeX $rightColX
+            set placeY [expr {$anchorY - $rowPitch}]
+        }
+    }
+    place_inst $cellName $placeX $placeY R0
+    incr idx
+    eval_legacy refinePlace
+}
+
+
+
+| | | |             
+| | | |  ---- nets   4cells of those four nets placed here with grid allignment
+| | | |               
+
+
+above script eval_legacy didn't work for allignment of cells to the site rows
