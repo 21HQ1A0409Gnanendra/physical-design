@@ -1,0 +1,69 @@
+############################################################
+# AP Layer Generation
+############################################################
+
+set apLayer AP
+
+# Default AP dimensions
+set AP_LEN_DEFAULT 77.2
+set AP_LEN_SHORT   41.2
+set AP_HEIGHT      5.4
+
+# Number of AP shapes
+set NUM_APS 441
+
+# LLY-to-LLY spacing
+set Y_PITCH 24.0
+
+# AP indices requiring shorter length (40.3)
+
+set shortAPs { 7 8 9 11 12 13 19 20 21 23 24 25 27 28 29 31 32 33 35 36 37 39 40 41 43 44 45 47 48 49 51 52 53 55 56 57 59 60 61 87 88 89 91 92 93 95 96 97 99 100 101 103 104 105 107 108 109 111 112 113 115 116 117 119 120 121 123 124 125 127 128 129 135 136 137 139 140 141 147 148 149 151 152 153 159 160 161 163 164 165 263 264 265 267 268 269 271 272 273 275 276 277 279 280 281 283 284 285 287 288 289 291 292 293 295 296 297 299 300 301 303 304 305 311 312 313 315 316 317 323 324 325 327 328 329 335 336 337 339 340 341 359 360 361 363 364 365 371 372 373 375 376 377 379 380 381 383 384 385 387 388 389 391 392 393 395 396 397 399 400 401 403 404 405 407 408 409 411 412 413 415 416 417 419 420 421 423 424 425 427 428 429 431 432 433 435 436 437 }
+# Starting bump locations
+set bumpStarts {
+    {80.9 10656.9 85.1 10661.1}
+}
+
+foreach bump $bumpStarts {
+
+    lassign $bump x4 y4 x2 y2
+set y1 [expr $y4 - 0.6]
+set x1 [expr $x4 - 0.5]
+    # Start AP at bump LLX
+    set llx $x1
+
+    # First AP starts at bump LLY
+    set first_lly $y1
+
+    for {set i 0} {$i < $NUM_APS} {incr i} {
+
+        # Use 40.3 length for selected AP numbers
+        if {[lsearch -exact $shortAPs $i] >= 0} {
+            set apLen $AP_LEN_SHORT
+        } else {
+            set apLen $AP_LEN_DEFAULT
+        }
+
+        set urx [expr {$llx + $apLen}]
+
+        # 24um LLY-to-LLY spacing
+        set lly [expr {$first_lly - ($i * $Y_PITCH)}]
+        set ury [expr {$lly + $AP_HEIGHT}]
+
+        create_shape \
+            -layer $apLayer \
+            -rect "$llx $lly $urx $ury" \
+            -net VDD
+
+        puts "Created AP $i : $llx $lly $urx $ury (Length=$apLen)"
+    }
+}
+
+# Additional AP shapes
+create_shape -layer AP -rect {92.4 10680.3 157.6 10685.7} -net VDD
+create_shape -layer AP -rect {92.4 10704.3 157.6 10709.7} -net VDD
+create_shape -layer AP -rect {92.4 48.3 157.6 53.7} -net VDD
+create_shape -layer AP -rect {92.4 72.3 157.6 77.7} -net VDD
+puts "================================================="
+puts "AP Generation Completed"
+puts "Total Shapes = [expr {[llength $bumpStarts] * $NUM_APS}]"
+puts "================================================="
