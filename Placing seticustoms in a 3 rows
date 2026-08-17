@@ -1,0 +1,44 @@
+# ============================================================
+# TCL Script: Place 61 cells in 3 rows inside a region
+# ============================================================
+
+# Define region coordinates
+set xMin 76.22850
+set yMin 5875.75700
+set xMax 140.75350
+set yMax 6078.62750
+
+# Region dimensions
+set regionWidth [expr {$xMax - $xMin}]
+set regionHeight [expr {$yMax - $yMin}]
+
+# Row distribution (number of cells per row)
+set rowCounts {20 20 21}
+
+# Compute row Y positions
+# Divide region height into 3 equal rows
+set rowSpacing [expr {$regionHeight / 3.0}]
+set rowY {}
+for {set i 0} {$i < 3} {incr i} {
+    lappend rowY [expr {$yMin + $i * $rowSpacing}]
+}
+
+# Place cells
+set cellIndex 0
+foreach count $rowCounts y $rowY {
+    # Compute spacing for cells in this row
+    set spacing [expr {$regionWidth / double($count)}]
+    set x $xMin
+
+    for {set i 0} {$i < $count} {incr i} {
+        # Define cell name (replace with actual instance names if available)
+        set cellName "cell_$cellIndex"
+
+        # Place instance at (x, y)
+        placeInstance $cellName $x $y -orient R0
+
+        # Increment X for next cell
+        set x [expr {$x + $spacing}]
+        incr cellIndex
+    }
+}
