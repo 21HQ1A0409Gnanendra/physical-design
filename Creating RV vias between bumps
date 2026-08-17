@@ -1,0 +1,67 @@
+#########################################################
+#creating RV vias between two bumps by taking their locationd and maintaing certain distance from bumps
+# Input Coordinates
+# Format: {llx lly urx ury}
+#########################################################
+
+set coord_list {
+    {12968.0 4784.0 12970.0 4786.0} 
+    {12968.0 5984.0 12970.0 5986.0} 
+    {58.0 4784.0 60.0 4786.0} 
+    {58.0 5984.0 60.0 5986.0}
+}
+
+#########################################################
+# RV VIA Parameters
+#########################################################
+
+set via_def VIA15AP_1cut
+
+set offset_from_urx 0.64
+
+set rv_width  2.6
+set rv_height 3.6
+
+set num_rvs 7
+set spacing 2.4
+
+#########################################################
+# Create RV VIA Array
+#########################################################
+
+foreach box $coord_list {
+
+    lassign $box llx lly urx ury
+
+    # RV reference location
+    set rv_llx [expr {$urx + $offset_from_urx}]
+    set rv_urx [expr {$rv_llx + $rv_width}]
+
+    # First RV uses original URY as its top
+    set curr_ury  [expr {$ury + 0.35}]
+    set curr_lly [expr {$curr_ury - $rv_height + 0.35}]
+
+    for {set i 1} {$i <= $num_rvs} {incr i} {
+
+        # Place RV via at center of RV rectangle
+        set via_x [expr {($rv_llx + $rv_urx)/2.0}]
+        set via_y [expr {($curr_lly + $curr_ury)/2.0}]
+
+        create_via \
+            -via_def $via_def \
+            -location [list $via_x $via_y] \
+	    -net VDDQ
+
+        puts "RV$i Rect : {$rv_llx $curr_lly $rv_urx $curr_ury}"
+        puts "RV$i Via  : {$via_x $via_y}"
+
+        # Next RV below with 4um spacing
+        set next_ury [expr {$curr_lly - $spacing}]
+        set next_lly [expr {$next_ury - $rv_height}]
+
+        set curr_ury $next_ury
+        set curr_lly $next_lly
+    }
+}
+
+puts "Successfully created $num_rvs RV vias."
