@@ -1,0 +1,21 @@
+###########################################
+# creating AP pad shapes by taking the names,locations,height and width from the another file
+# name,x,y,area,width,height ------- this is the format with in the file
+###########################################
+
+set fh [open "/projects/hammertime/work/vinay/test3/ht_tsv/saratoga_wt_pads_tessolve.csv" r]
+while {[gets $fh line] >= 0} {
+set b [split $line ","]
+set net [lindex $b 0]
+set x [lindex $b 1]
+set y [lindex $b 2]
+set wid [lindex $b 4]
+set w [expr {int($wid)}]
+set height [lindex $b 5]
+set h [expr {int($height)}]
+set bbox [list \
+[list [expr {$x-$w/2.0}] [expr {$y-$h/2.0}]] \
+[list [expr {$x+$w/2.0}] [expr {$y+$h/2.0}]]]
+create_shape -layer AP -rect $bbox -net $net
+}
+close $fh
