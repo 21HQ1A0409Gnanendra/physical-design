@@ -1,0 +1,17 @@
+######################################################
+# Moving all cells to 1cpp right 
+######################################################
+
+set cells {ht_top_io/top/dram_common_0/tm/I3128 ht_top_io/top/dram_common_0/tm/I3131 ht_top_io/top/dram_common_0/tm/I3130 ht_top_io/top/dram_common_0/tm/I3129 ht_top_io/top/dram_common_0/tm/I3112 ht_top_io/top/dram_common_0/tm/I3113 ht_top_io/top/dram_common_0/tm/I3114 ht_top_io/top/dram_common_0/tm/I3124 ht_top_io/top/dram_common_0/tm/I3125 ht_top_io/top/dram_common_0/tm/I3126 ht_top_io/top/dram_common_0/tm/I3127 ht_top_io/top/dram_common_0/tm/I3111 ht_top_io/top/dram_common_0/tm/I3110 ht_top_io/top/dram_common_0/tm/I3109 ht_top_io/top/dram_common_0/tm/I3121 ht_top_io/top/dram_common_0/tm/I3120 ht_top_io/top/dram_common_0/tm/I3122 ht_top_io/top/dram_common_0/tm/I3123 ht_top_io/top/dram_common_0/tm/I3106 ht_top_io/top/dram_common_0/tm/I3107 ht_top_io/top/dram_common_0/tm/I3108 ht_top_io/top/dram_common_0/tm/I3118 ht_top_io/top/dram_common_0/tm/I3119 ht_top_io/top/dram_common_0/tm/I3117 ht_top_io/top/dram_common_0/tm/I3116 ht_top_io/top/dram_common_0/tm/I3103 ht_top_io/top/dram_common_0/tm/I3104 ht_top_io/top/dram_common_0/tm/I3105 ht_top_io/top/dram_common_0/tm/I3101 ht_top_io/top/dram_common_0/tm/I3102 ht_top_io/top/dram_common_0/tm/I3100 ht_top_io/top/dram_common_0/tm/I3098 ht_top_io/top/dram_common_0/tm/I3097 ht_top_io/top/dram_common_0/tm/I3099 ht_top_io/top/dram_common_0/tm/I3095 ht_top_io/top/dram_common_0/tm/I3096 ht_top_io/top/dram_common_0/tm/I3094 ht_top_io/top/dram_common_0/tm/I3093 ht_top_io/top/dram_common_0/tm/I3092 ht_top_io/top/dram_common_0/tm/I3091 ht_top_io/top/dram_common_0/tm/I3143 ht_top_io/top/dram_common_0/tm/I3144 ht_top_io/top/dram_common_0/tm/I3145 ht_top_io/top/dram_common_0/tm/I3146 ht_top_io/top/dram_common_0/tm/I2219 ht_top_io/top/dram_common_0/tm/I2220 ht_top_io/top/dram_common_0/tm/I2221 ht_top_io/top/dram_common_0/tm/I2222 ht_top_io/top/dram_common_0/tm/I3133 ht_top_io/top/dram_common_0/tm/I3134 ht_top_io/top/dram_common_0/tm/I3135 ht_top_io/top/dram_common_0/tm/I3136 ht_top_io/top/dram_common_0/tm/I3137 ht_top_io/top/dram_common_0/tm/I3138 ht_top_io/top/dram_common_0/tm/I3139 ht_top_io/top/dram_common_0/tm/I3140 ht_top_io/top/dram_common_0/tm/I3142} 
+
+set cpp 0.057
+
+foreach inst $cells {
+	set bbox  [get_db [get_db insts $inst] .location ]
+	set x [lindex [lindex $bbox 0] 0]
+	set y [lindex [lindex $bbox 0] 1]
+	set z [expr {$x + $cpp}]
+
+     	place_inst $inst $z $y -fixed
+
+}
